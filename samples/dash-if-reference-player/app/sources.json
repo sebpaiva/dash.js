@@ -95,7 +95,7 @@
                     "provider": "dashif"
                 },
                 {
-                    "url": "https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd",
+                    "url": "https://nustreaming.github.io/streaming/bbb.mpd",
                     "name": "SegmentTemplate/Number, live profile, 250kbps up to 15Mbps@4K.",
                     "provider": "dashif"
                 },

@@ -35,7 +35,7 @@ angular.module('DashIFTestVectorsService', ['ngResource']).factory('dashifTestVe
 
 app.controller('DashController', ['$scope', '$window', 'sources', 'contributors', 'dashifTestVectors', function ($scope, $window, sources, contributors, dashifTestVectors) {
     $scope.selectedItem = {
-        url: 'https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd'
+        url: 'https://nustreaming.github.io/streaming/bbb.mpd'
     };
 
     sources.query(function (data) {
@@ -238,7 +238,7 @@ app.controller('DashController', ['$scope', '$window', 'sources', 'contributors'
     $scope.conformanceViolations = [];
 
     var defaultExternalSettings = {
-        mpd: encodeURIComponent('https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd'),
+        mpd: encodeURIComponent('https://nustreaming.github.io/streaming/bbb.mpd'),
         loop: true,
         autoPlay: true,
         drmToday: false,
