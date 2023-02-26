@@ -918,17 +918,56 @@
             <div class="bs-callout bs-callout-danger" id="http-warning-container" style="display: none;">
                 <span id="http-warning-text"></span>
             </div>
-            <div class="bs-callout bs-callout-warning">
-                <h5><span class="label label-warning" style="margin-right:3px">Updated</span>Export settings</h5>
-                Our export settings feature creates shorter URLs now.
-                Click on "Copy Settings URL" on the top right and paste the URL in the address bar of your browser. The
-                current settings are compared to the default settings and the difference is stored using query parameters.
+            
+            <div class="bs-callout">
+                <h4>Metrics (refreshed every 8 seconds)</h4>
+                
+                <!-- Selected bitrate (Mbps) -->
+                <div class="text-success">
+                    <label class="text-primary" for="--" data-toggle="tooltip"
+                           data-placement="top">Selected bitrate (Mbps) : </label> 
+                           {{videoSelectedBitrate}}
+                </div>
+
+                <!-- Buffer level (second) -->
+                <div class="text-success">
+                    <label class="text-primary" for="--" data-toggle="tooltip"
+                           data-placement="top">Buffer level (second) : </label> 
+                           {{videoBufferLevel}}
+                </div>
+
+                <!-- Measured throughput (Mbps) -->
+                <div class="text-success">
+                    <label class="text-primary" for="--" data-toggle="tooltip"
+                           data-placement="top">Measured Throughput (Mbps) : </label> 
+                           {{videoMeasuredThroughput}}
+                </div>
+
+                <!-- Segment Download Time (second) -->
+                <div class="text-success">
+                    <label class="text-primary" for="--" data-toggle="tooltip"
+                           data-placement="top">Segment Download Time (second) : </label> 
+                           {{videoSegmentDownloadTime}}
+                </div>
+
+                <!-- Segment size (byte) -->
+                <div class="text-success">
+                    <label class="text-primary" for="--" data-toggle="tooltip"
+                           data-placement="top">Segment size (byte) : </label> 
+                           {{videoSegmentSize}}
+                </div>
+
+                <hr/>
+                <h4>Other stats</h4>
+
+                <!-- Segment size (byte) -->
+                <div class="text-success">
+                    <label class="text-primary" for="--" data-toggle="tooltip"
+                           data-placement="top">8 second interval progress : </label> 
+                           {{intervalProgress}}
+                </div>
             </div>
-            <div class="bs-callout bs-callout-information">
-                <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                Additional samples can be found in the <a
-                href="../index.html" target="_blank">Sample Section</a>.
-            </div>
+
             <div>
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="active">
