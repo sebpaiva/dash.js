@@ -2051,6 +2051,9 @@ app.controller('DashController', ['$scope', '$window', 'sources', 'contributors'
                 // Segment size (byte)
                 var responseHeaders = dashMetrics.getCurrentHttpRequest('video', true)._responseHeaders;
                 $scope.videoSegmentSize = responseHeaders.substring(responseHeaders.indexOf('content-length:')+16, responseHeaders.indexOf('content-type'));
+
+                console.log($scope.videoSelectedBitrate, $scope.videoBufferLevel, $scope.videoMeasuredThroughput, $scope.videoSegmentDownloadTime, $scope.videoSegmentSize)
+
             }
 
             var httpMetrics = calculateHTTPMetrics(type, dashMetrics.getHttpRequests(type));
