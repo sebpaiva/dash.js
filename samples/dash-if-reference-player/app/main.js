@@ -295,8 +295,6 @@ app.controller('DashController', ['$scope', '$window', 'sources', 'contributors'
     $scope.videoSegmentDownloadTime = -1;
     $scope.videoSegmentSize = -1;
 
-    $scope.intervalProgress = 0.00;
-
     // Starting Options
     $scope.autoPlaySelected = true;
     $scope.cmcdEnabled = false;
