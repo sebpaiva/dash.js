@@ -183,7 +183,7 @@ app.controller('DashController', ['$scope', '$window', 'sources', 'contributors'
     $scope.additionalAbrRules = {};
     $scope.mediaSettingsCacheEnabled = true;
     $scope.metricsTimer = null;
-    $scope.updateMetricsInterval = 1000;
+    $scope.updateMetricsInterval = 8000;
     $scope.drmKeySystems = ['com.widevine.alpha', 'com.microsoft.playready', 'org.w3.clearkey'];
     $scope.drmKeySystem = '';
     $scope.drmLicenseURL = '';
@@ -2034,6 +2034,21 @@ app.controller('DashController', ['$scope', '$window', 'sources', 'contributors'
             $scope[type + 'DroppedFrames'] = droppedFPS;
             $scope[type + 'LiveLatency'] = liveLatency;
             $scope[type + 'PlaybackRate'] = playbackRate;
+
+            if(type == 'video'){
+                // Bitrate
+                $scope.videoSelectedBitrate = (bitrate/1000).toFixed(3);
+                // Buffer level
+                $scope.videoBufferLevel = (bufferLevel).toFixed(2);
+                // Measured Throughput
+                $scope.videoMeasuredThroughput = (mtp/1000).toFixed(3);
+                // Segment download time (second)
+                var segDownloadTime = dashMetrics.getCurrentHttpRequest('video', true).tresponse.getTime() - dashMetrics.getCurrentHttpRequest('video', true).trequest.getTime();
+                $scope.videoSegmentDownloadTime = (segDownloadTime / 1000).toFixed(3);
+                // Segment size (byte)
+                console.log(dashMetrics.getCurrentHttpRequest('video', true).responseSize);
+                $scope.videoSegmentSize = dashMetrics.getCurrentHttpRequest('video', true).responseSize;
+            }
 
             var httpMetrics = calculateHTTPMetrics(type, dashMetrics.getHttpRequests(type));
             if (httpMetrics) {
