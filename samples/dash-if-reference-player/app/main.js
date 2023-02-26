@@ -289,12 +289,13 @@ app.controller('DashController', ['$scope', '$window', 'sources', 'contributors'
     $scope.audioPlaybackRate = 1.00;
 
     // New metrics
-    $scope.videoSelectedBitrate = -1;
-    $scope.videoBufferLevel = -1;
-    $scope.videoMeasuredThroughput = -1;
-    $scope.videoSegmentDownloadTime = -1;
-    $scope.videoSegmentSize = -1;
+    $scope.videoSelectedBitrate = "-";
+    $scope.videoBufferLevel = "-";
+    $scope.videoMeasuredThroughput = "-";
+    $scope.videoSegmentDownloadTime = "-";
+    $scope.videoSegmentSize = "-";
 
+    $scope.videoRequestedUrl = "-";
 
     // Starting Options
     $scope.autoPlaySelected = true;
