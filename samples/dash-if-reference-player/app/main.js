@@ -295,6 +295,7 @@ app.controller('DashController', ['$scope', '$window', 'sources', 'contributors'
     $scope.videoSegmentDownloadTime = -1;
     $scope.videoSegmentSize = -1;
 
+
     // Starting Options
     $scope.autoPlaySelected = true;
     $scope.cmcdEnabled = false;
@@ -2036,6 +2037,8 @@ app.controller('DashController', ['$scope', '$window', 'sources', 'contributors'
             $scope[type + 'PlaybackRate'] = playbackRate;
 
             if(type == 'video'){
+                $scope.videoRequestedUrl = dashMetrics.getCurrentHttpRequest('video', true).url;
+
                 // Bitrate
                 $scope.videoSelectedBitrate = (bitrate/1000).toFixed(3);
                 // Buffer level
@@ -2046,8 +2049,8 @@ app.controller('DashController', ['$scope', '$window', 'sources', 'contributors'
                 var segDownloadTime = dashMetrics.getCurrentHttpRequest('video', true).tresponse.getTime() - dashMetrics.getCurrentHttpRequest('video', true).trequest.getTime();
                 $scope.videoSegmentDownloadTime = (segDownloadTime / 1000).toFixed(3);
                 // Segment size (byte)
-                console.log(dashMetrics.getCurrentHttpRequest('video', true).responseSize);
-                $scope.videoSegmentSize = dashMetrics.getCurrentHttpRequest('video', true).responseSize;
+                var responseHeaders = dashMetrics.getCurrentHttpRequest('video', true)._responseHeaders;
+                $scope.videoSegmentSize = responseHeaders.substring(responseHeaders.indexOf('content-length:')+16, responseHeaders.indexOf('content-type'));
             }
 
             var httpMetrics = calculateHTTPMetrics(type, dashMetrics.getHttpRequests(type));
